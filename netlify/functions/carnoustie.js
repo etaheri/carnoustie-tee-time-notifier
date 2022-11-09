@@ -26,8 +26,8 @@ export const handler = async (event, context) => {
 
   client.messages
   .create({
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-     from: '+12183046412',
+     body: 'Working',
+     messagingServiceSid: 'MG347d4faefa44cb105b7b7e3304da34f6',
      to: '+17163596715'
    })
   .then(message => console.log(message.sid));
