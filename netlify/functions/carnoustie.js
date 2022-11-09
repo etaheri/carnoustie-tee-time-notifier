@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
 import FormData from "form-data";
 import { XMLParser } from "fast-xml-parser";
+
+
 const client = require("twilio")(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
@@ -41,6 +43,8 @@ export const handler = async (event, context) => {
   if (jsonObj?.Diary_SelectTimesByCriteria?.Results) {
     sendMessage(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
     console.log(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
+  } else {
+    console.log('No results: ', jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
   }
 
   // 25
@@ -67,6 +71,8 @@ export const handler = async (event, context) => {
   if (jsonObj?.Diary_SelectTimesByCriteria?.Results) {
     sendMessage(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
     console.log(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
+  } else {
+    console.log('No results: ', jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
   }
 
   // 26
@@ -93,6 +99,8 @@ export const handler = async (event, context) => {
   if (jsonObj?.Diary_SelectTimesByCriteria?.Results) {
     sendMessage(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
     console.log(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
+  } else {
+    console.log('No results: ', jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
   }
 
   // 27
@@ -119,6 +127,8 @@ export const handler = async (event, context) => {
   if (jsonObj?.Diary_SelectTimesByCriteria?.Results) {
     sendMessage(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
     console.log(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
+  } else {
+    console.log('No results: ', jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
   }
 
   // 28
@@ -145,6 +155,8 @@ export const handler = async (event, context) => {
   if (jsonObj?.Diary_SelectTimesByCriteria?.Results) {
     sendMessage(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
     console.log(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
+  } else {
+    console.log('No results: ', jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
   }
 
   console.log("done");
