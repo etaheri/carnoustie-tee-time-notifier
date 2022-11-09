@@ -1,16 +1,25 @@
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
+import FormData from "form-data";
 
 export const handler = async (event, context) => {
-  const eventBody = JSON.parse(event.body)
-  const POKE_API = 'https://pokeapi.co/api/v2/pokedex/' + eventBody.region
+  var formdata = new FormData();
+  formdata.append("CourseID", "1");
+  formdata.append("BookingDate", "2023-7-24");
+  formdata.append("NumberOfPlayers", "3");
 
-  const response = await fetch(POKE_API)
-  const data = await response.json()
+  var requestOptions = {
+    method: "POST",
+    body: formdata,
+    redirect: "follow",
+  };
+
+  const response = await fetch(
+    "https://www.carnoustiegolflinks.com/OnlineBooking3/php/ajax/Diary_SelectTimesByCriteria.xml.php"
+  );
+  const data = await response.text();
 
   return {
     statusCode: 200,
-    body: JSON.stringify({
-      pokemon: data.pokemon_entries
-    })
-  }
-}
+    body: data,
+  };
+};
