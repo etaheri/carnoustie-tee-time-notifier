@@ -4,10 +4,10 @@ import { XMLParser } from "fast-xml-parser";
 const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 
-const sendMessage = (date) => {
+const sendMessage = (message) => {
   client.messages
   .create({
-     body: 'Working',
+     body: message,
      messagingServiceSid: 'MG347d4faefa44cb105b7b7e3304da34f6',
      to: '+17163596715'
    })
