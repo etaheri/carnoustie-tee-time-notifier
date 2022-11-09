@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/etaheri/netlify-test#readme",
   "devDependencies": {
+    "fast-xml-parser": "^4.0.11",
+    "form-data": "^4.0.0",
     "node-fetch": "^3.2.8",
-    "form-data": "^4.0.0"
+    "twilio": "^3.83.1"
   }
 }
