@@ -3,10 +3,22 @@ import FormData from "form-data";
 import { XMLParser } from "fast-xml-parser";
 const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
+
+const sendMessage = (date) => {
+  client.messages
+  .create({
+     body: 'Working',
+     messagingServiceSid: 'MG347d4faefa44cb105b7b7e3304da34f6',
+     to: '+17163596715'
+   })
+  .then(message => console.log(message.sid));
+}
+
+
 export const handler = async (event, context) => {
   var formdata = new FormData();
   formdata.append("CourseID", "1");
-  formdata.append("BookingDate", "2023-7-24");
+  formdata.append("BookingDate", "2023-7-16");
   formdata.append("NumberOfPlayers", "3");
 
   var requestOptions = {
@@ -23,14 +35,10 @@ export const handler = async (event, context) => {
 
   const parser = new XMLParser();
   let jsonObj = parser.parse(data);
-
-  client.messages
-  .create({
-     body: 'Working',
-     messagingServiceSid: 'MG347d4faefa44cb105b7b7e3304da34f6',
-     to: '+17163596715'
-   })
-  .then(message => console.log(message.sid));
+  
+  if(jsonObj?.Diary_SelectTimesByCriteria?.Results) {
+    sendMessage(jsonObj?.Diary_SelectTimesByCriteria?.Parameters?.BookingDate);
+  }
 
   return {
     statusCode: 200,
